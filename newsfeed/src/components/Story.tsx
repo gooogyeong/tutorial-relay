@@ -18,45 +18,15 @@ const StoryFragment = graphql`
       ...PosterBylineFragment
     }
     thumbnail {
-      url
+      ...ImageFragment @arguments(width: 400)
     }
   }
 `;
 
 
-// const StoryFragment = graphql`
-//   fragment StoryFragment on Story {
-//     title
-//     summary
-//     createdAt
-//     poster {
-//       name
-//       profilePicture {
-//         url
-//       }
-//     }
-//     thumbnail {
-//       url
-//     }
-//   }
-// `;
-
-
 type Props = {
   story: StoryFragment$key
 }
-
-// type Props = {
-//   story: {
-//     title: string;
-//     summary: string;
-//     createdAt: string;
-//     thumbnail: {
-//       url: string;
-//     };
-//     poster: PosterBylineProps["poster"];
-//   };
-// };
 
 export default function Story({ story }: Props): React.ReactElement {
   const data = useFragment(

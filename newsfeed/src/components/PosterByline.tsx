@@ -8,7 +8,7 @@ const PosterBylineFragment = graphql`
   fragment PosterBylineFragment on Actor {
       name
       profilePicture {
-        url
+        ...ImageFragment @arguments(width: 60, height: 60)
       }
   }
 `;
@@ -16,15 +16,6 @@ const PosterBylineFragment = graphql`
 export type Props = {
   poster: PosterBylineFragment$key
 }
-
-// export type Props = {
-//   poster: {
-//     name: string;
-//     profilePicture: {
-//       url: string;
-//     };
-//   };
-// };
 
 export default function PosterByline({ poster }: Props): React.ReactElement {
   const data = useFragment(
