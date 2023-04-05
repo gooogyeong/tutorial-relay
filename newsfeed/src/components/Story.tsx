@@ -1,14 +1,13 @@
 import * as React from "react";
 import Card from "./Card";
 import Heading from "./Heading";
-import PosterByline, { type Props as PosterBylineProps } from "./PosterByline";
+import PosterByline from "./PosterByline";
 import StorySummary from "./StorySummary";
 import Image from "./Image";
 import Timestamp from './Timestamp'
 import { graphql } from "relay-runtime";
 import { useFragment } from "react-relay";
 import type { StoryFragment$key } from './__generated__/StoryFragment.graphql';
-import type { PosterByLineQuery as PosterByLineQueryType } from './__generated__/PosterByLineQueryFragment.graphql';
 
 const StoryFragment = graphql`
   fragment StoryFragment on Story {
@@ -60,7 +59,7 @@ type Props = {
 // };
 
 export default function Story({ story }: Props): React.ReactElement {
-  const data = useFragment<PosterByLineQueryType>(
+  const data = useFragment(
     StoryFragment,
     story
   )
