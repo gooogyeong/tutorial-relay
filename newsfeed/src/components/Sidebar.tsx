@@ -2,9 +2,9 @@ import * as React from "react";
 import { graphql } from "relay-runtime";
 import { useLazyLoadQuery } from "react-relay";
 import LoadingSpinner from "./LoadingSpinner";
-import type { SidebarQuery as SidebarQueryType } from "./__generated__/SidebarQuery.graphql";
+import type { SidebarQuery as SidebarQueryType } from "../components/__generated__/SidebarQuery.graphql" //  "./__generated__/SidebarQuery.graphql";
 import ViewerProfile from "./ViewerProfile";
-import ContactsList from "./ContactsList";
+import ContactsList from './ContactsList'
 
 const SidebarQuery = graphql`
   query SidebarQuery {
