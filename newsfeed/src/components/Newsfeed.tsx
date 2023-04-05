@@ -7,7 +7,8 @@ import type { NewsfeedQuery as NewsfeedQueryType } from './__generated__/Newsfee
 // define GraphQL Query to fetch data
 const NewsfeedQuery = graphql`
   query NewsfeedQuery {
-    topStory {
+    topStories {
+      id
       ...StoryFragment,
     }
   }
@@ -37,26 +38,11 @@ export default function Newsfeed({ }) {
     NewsfeedQuery,
     {},
   );
-  const story = data.topStory;
-  console.log(story)
-
-  // const story = {
-  //   title: "Placeholder Story",
-  //   summary: "Placeholder data, to be replaced with data fetched via GraphQL",
-  //   poster: {
-  //     name: "Placeholder Person",
-  //     profilePicture: {
-  //       url: "/assets/cat_avatar.png",
-  //     },
-  //   },
-  //   thumbnail: {
-  //     url: "/assets/placeholder.jpeg",
-  //   },
-  // };
+  const stories = data.topStories;
 
   return (
     <div className="newsfeed">
-      <Story story={story} />
+      {stories.map(story => <Story key={story.id} story={story} />)}
     </div>
   );
 }
