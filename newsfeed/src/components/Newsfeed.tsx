@@ -1,48 +1,48 @@
 import * as React from "react";
 import Story from "./Story";
 import { graphql } from "relay-runtime";
-import { useLazyLoadQuery } from "react-relay";
+import { useFragment, useLazyLoadQuery } from "react-relay";
 import type { NewsfeedQuery as NewsfeedQueryType } from './__generated__/NewsfeedQuery.graphql';
 
-// define GraphQL Query to fetch data
 const NewsfeedQuery = graphql`
   query NewsfeedQuery {
-    topStories {
-      id
-      ...StoryFragment,
-    }
+    ...NewsfeedContentsFragment
   }
 `;
 
-// const NewsfeedQuery = graphql`
-//   query NewsfeedQuery {
-//     topStory {
-//       title
-//       summary
-//       createdAt
-//       poster {
-//         name
-//         profilePicture {
-//           url
-//         }
-//       }
-//       thumbnail {
-//         url
-//       }
-//     }
-//   }
-// `;
+const NewsfeedContentsFragment = graphql`
+  fragment NewsfeedContentsFragment on Query 
+  @argumentDefinitions(
+    cursor: { type: "String" }
+    count: { type: "Int", defaultValue: 3 }
+  )
+  @refetchable(queryName: "NewsfeedContentsRefetchQuery")
+  {
+    viewer {
+      newsfeedStories(after: $cursor, first: $count) {
+        edges {
+          node {
+            id
+            ...StoryFragment
+          }
+        }
+      }
+    }
+  }
+`
 
 export default function Newsfeed({ }) {
-  const data = useLazyLoadQuery<NewsfeedQueryType>(
+  const queryData = useLazyLoadQuery<NewsfeedQueryType>(
     NewsfeedQuery,
     {},
   );
-  const stories = data.topStories;
+  const data = useFragment(NewsfeedContentsFragment, queryData)
+  const storyEdges = data.viewer.newsfeedStories.edges
 
   return (
     <div className="newsfeed">
-      {stories.map(story => <Story key={story.id} story={story} />)}
+      {/* {stories.map(story => <Story key={story.id} story={story} />)} */}
+      {storyEdges.map(storyEdge => <Story key={storyEdge.node.id} story={storyEdge.node} />)}
     </div>
   );
 }
