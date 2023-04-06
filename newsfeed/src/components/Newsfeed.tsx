@@ -10,6 +10,7 @@ const NewsfeedQuery = graphql`
       ...StoryFragment
     }
     topStories {
+      id
       ...StoryFragment
     }
   }
@@ -22,7 +23,7 @@ export default function Newsfeed() {
 
   return (
     <div className="newsfeed">
-      {stories.map(story => <Story story={story} />)}
+      {stories.map(story => <Story key={story.id} story={story} />)}
     </div>
   );
 }
