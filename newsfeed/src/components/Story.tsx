@@ -17,11 +17,11 @@ const StoryFragment = graphql`
     poster {
       name
       profilePicture {
-        url
+        ...ImageFragment @arguments(height: 60, width: 60)
       }
     }
     thumbnail {
-      url
+      ...ImageFragment @arguments(height: 400, width: 400)
     }
   }
 `
