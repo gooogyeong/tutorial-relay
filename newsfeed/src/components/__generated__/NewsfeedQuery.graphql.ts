@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<495112c109a0a7c5861621761cd19761>>
+ * @generated SignedSource<<afb8ecbf224376bca7a35729c0c391e8>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -46,6 +46,27 @@ v3 = {
   "args": null,
   "kind": "ScalarField",
   "name": "altText",
+  "storageKey": null
+},
+v4 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "hasNextPage",
+  "storageKey": null
+},
+v5 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "endCursor",
+  "storageKey": null
+},
+v6 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "cursor",
   "storageKey": null
 };
 return {
@@ -219,20 +240,8 @@ return {
                             "name": "pageInfo",
                             "plural": false,
                             "selections": [
-                              {
-                                "alias": null,
-                                "args": null,
-                                "kind": "ScalarField",
-                                "name": "hasNextPage",
-                                "storageKey": null
-                              },
-                              {
-                                "alias": null,
-                                "args": null,
-                                "kind": "ScalarField",
-                                "name": "endCursor",
-                                "storageKey": null
-                              }
+                              (v4/*: any*/),
+                              (v5/*: any*/)
                             ],
                             "storageKey": null
                           },
@@ -264,13 +273,7 @@ return {
                                 ],
                                 "storageKey": null
                               },
-                              {
-                                "alias": null,
-                                "args": null,
-                                "kind": "ScalarField",
-                                "name": "cursor",
-                                "storageKey": null
-                              }
+                              (v6/*: any*/)
                             ],
                             "storageKey": null
                           }
@@ -285,15 +288,39 @@ return {
                         "key": "StoryCommentsSectionFragment_comments",
                         "kind": "LinkedHandle",
                         "name": "comments"
-                      }
+                      },
+                      (v2/*: any*/)
                     ],
                     "storageKey": null
-                  }
+                  },
+                  (v6/*: any*/)
+                ],
+                "storageKey": null
+              },
+              {
+                "alias": null,
+                "args": null,
+                "concreteType": "PageInfo",
+                "kind": "LinkedField",
+                "name": "pageInfo",
+                "plural": false,
+                "selections": [
+                  (v5/*: any*/),
+                  (v4/*: any*/)
                 ],
                 "storageKey": null
               }
             ],
             "storageKey": "newsfeedStories(first:3)"
+          },
+          {
+            "alias": null,
+            "args": (v0/*: any*/),
+            "filters": null,
+            "handle": "connection",
+            "key": "NewsfeedContentsFragment_newsfeedStories",
+            "kind": "LinkedHandle",
+            "name": "newsfeedStories"
           }
         ],
         "storageKey": null
@@ -301,12 +328,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "c8e04add5af5c2ea7fb868a2661e9e55",
+    "cacheID": "b13f0f3dbad9b4f7b42dcf7fc0a2ef37",
     "id": null,
     "metadata": {},
     "name": "NewsfeedQuery",
     "operationKind": "query",
-    "text": "query NewsfeedQuery {\n  ...NewsfeedContentsFragment\n}\n\nfragment CommentFragment on Comment {\n  text\n}\n\nfragment ImageFragment_3XLoCc on Image {\n  url(width: 60, height: 60)\n  altText\n}\n\nfragment ImageFragment_OxVt3 on Image {\n  url(width: 400)\n  altText\n}\n\nfragment NewsfeedContentsFragment on Query {\n  viewer {\n    newsfeedStories(first: 3) {\n      edges {\n        node {\n          id\n          ...StoryFragment\n        }\n      }\n    }\n  }\n}\n\nfragment PosterBylineFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  profilePicture {\n    ...ImageFragment_3XLoCc\n  }\n}\n\nfragment StoryCommentsSectionFragment on Story {\n  comments(first: 3) {\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...CommentFragment\n        __typename\n      }\n      cursor\n    }\n  }\n  id\n}\n\nfragment StoryFragment on Story {\n  title\n  summary\n  createdAt\n  poster {\n    __typename\n    ...PosterBylineFragment\n    id\n  }\n  thumbnail {\n    ...ImageFragment_OxVt3\n  }\n  ...StoryCommentsSectionFragment\n}\n"
+    "text": "query NewsfeedQuery {\n  ...NewsfeedContentsFragment\n}\n\nfragment CommentFragment on Comment {\n  text\n}\n\nfragment ImageFragment_3XLoCc on Image {\n  url(width: 60, height: 60)\n  altText\n}\n\nfragment ImageFragment_OxVt3 on Image {\n  url(width: 400)\n  altText\n}\n\nfragment NewsfeedContentsFragment on Query {\n  viewer {\n    newsfeedStories(first: 3) {\n      edges {\n        node {\n          id\n          ...StoryFragment\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment PosterBylineFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  profilePicture {\n    ...ImageFragment_3XLoCc\n  }\n}\n\nfragment StoryCommentsSectionFragment on Story {\n  comments(first: 3) {\n    pageInfo {\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...CommentFragment\n        __typename\n      }\n      cursor\n    }\n  }\n  id\n}\n\nfragment StoryFragment on Story {\n  title\n  summary\n  createdAt\n  poster {\n    __typename\n    ...PosterBylineFragment\n    id\n  }\n  thumbnail {\n    ...ImageFragment_OxVt3\n  }\n  ...StoryCommentsSectionFragment\n}\n"
   }
 };
 })();
