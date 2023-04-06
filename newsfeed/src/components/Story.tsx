@@ -15,10 +15,7 @@ const StoryFragment = graphql`
     summary
     createdAt
     poster {
-      name
-      profilePicture {
-        ...ImageFragment @arguments(height: 60, width: 60)
-      }
+      ...PosterBylineFragment
     }
     thumbnail {
       ...ImageFragment @arguments(height: 400, width: 400)

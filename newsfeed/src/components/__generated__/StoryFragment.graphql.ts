@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<496801a00c89a72b62dbb09ae80cec1a>>
+ * @generated SignedSource<<568f7cffa69452e479e164b7bc562ec3>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,10 +13,7 @@ import { FragmentRefs } from "relay-runtime";
 export type StoryFragment$data = {
   readonly createdAt: string;
   readonly poster: {
-    readonly name: string | null;
-    readonly profilePicture: {
-      readonly " $fragmentSpreads": FragmentRefs<"ImageFragment">;
-    } | null;
+    readonly " $fragmentSpreads": FragmentRefs<"PosterBylineFragment">;
   };
   readonly summary: string | null;
   readonly thumbnail: {
@@ -66,38 +63,9 @@ const node: ReaderFragment = {
       "plural": false,
       "selections": [
         {
-          "alias": null,
           "args": null,
-          "kind": "ScalarField",
-          "name": "name",
-          "storageKey": null
-        },
-        {
-          "alias": null,
-          "args": null,
-          "concreteType": "Image",
-          "kind": "LinkedField",
-          "name": "profilePicture",
-          "plural": false,
-          "selections": [
-            {
-              "args": [
-                {
-                  "kind": "Literal",
-                  "name": "height",
-                  "value": 60
-                },
-                {
-                  "kind": "Literal",
-                  "name": "width",
-                  "value": 60
-                }
-              ],
-              "kind": "FragmentSpread",
-              "name": "ImageFragment"
-            }
-          ],
-          "storageKey": null
+          "kind": "FragmentSpread",
+          "name": "PosterBylineFragment"
         }
       ],
       "storageKey": null
@@ -134,6 +102,6 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 
-(node as any).hash = "c806ba478e62c05e2a4cf42129adbf0a";
+(node as any).hash = "24a7623370c602cf65c42a8b6c653ec8";
 
 export default node;
