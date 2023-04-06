@@ -9,17 +9,20 @@ const NewsfeedQuery = graphql`
     topStory {
       ...StoryFragment
     }
+    topStories {
+      ...StoryFragment
+    }
   }
 `;
 
 export default function Newsfeed() {
 
   const data = useLazyLoadQuery<NewsfeedQueryType>(NewsfeedQuery, {})
-  const story = data.topStory
+  const stories = data.topStories
 
   return (
     <div className="newsfeed">
-      <Story story={story} />
+      {stories.map(story => <Story story={story} />)}
     </div>
   );
 }
