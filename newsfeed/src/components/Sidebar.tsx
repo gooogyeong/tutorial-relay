@@ -6,7 +6,7 @@ import type { SidebarQuery as SidebarQueryType } from "./__generated__/SidebarQu
 import ViewerProfile from "./ViewerProfile";
 import ContactsList from "./ContactsList";
 
-const SidebarQuery = graphql`
+const SidebarQuery = graphql` 
   query SidebarQuery {
     viewer {
       ...ViewerProfileFragment

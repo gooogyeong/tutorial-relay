@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f3018d181e3b49d90119aef8009b37eb>>
+ * @generated SignedSource<<fe10e6f73724d43dcce6fc800bc7947e>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -37,7 +37,7 @@ const node: ReaderFragment = {
       "fragmentPathInResult": [
         "viewer"
       ],
-      "operation": require('./ContactsListRefetchQuery.graphql')
+      "operation": require('./ContactsListRefetchFragment.graphql')
     }
   },
   "name": "ContactsListFragment",
@@ -76,6 +76,6 @@ const node: ReaderFragment = {
   "abstractKey": null
 };
 
-(node as any).hash = "a58a5b12c5813e115be4ed129437cb3a";
+(node as any).hash = "ec7885229d2ca3836cfcc918dcd0fc24";
 
 export default node;
