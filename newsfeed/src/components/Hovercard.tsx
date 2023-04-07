@@ -13,7 +13,7 @@ export type Props = {
 export default function Hovercard({
   children,
   targetRef,
-  onBeginHover,
+  onBeginHover
 }: Props) {
   const [hoverState, setHoverState] = useState(null);
 
