@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<41df8396277025471c82f19c2a0e80f6>>
+ * @generated SignedSource<<348b747083b67464a19b13055ff58744>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -37,7 +37,21 @@ v1 = [
     "name": "id",
     "variableName": "posterID"
   }
-];
+],
+v2 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "id",
+  "storageKey": null
+},
+v3 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "name",
+  "storageKey": null
+};
 return {
   "fragment": {
     "argumentDefinitions": (v0/*: any*/),
@@ -93,23 +107,11 @@ return {
             "name": "__typename",
             "storageKey": null
           },
-          {
-            "alias": null,
-            "args": null,
-            "kind": "ScalarField",
-            "name": "id",
-            "storageKey": null
-          },
+          (v2/*: any*/),
           {
             "kind": "InlineFragment",
             "selections": [
-              {
-                "alias": null,
-                "args": null,
-                "kind": "ScalarField",
-                "name": "name",
-                "storageKey": null
-              },
+              (v3/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -134,6 +136,40 @@ return {
                   }
                 ],
                 "storageKey": null
+              },
+              {
+                "kind": "InlineFragment",
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "concreteType": "Location",
+                    "kind": "LinkedField",
+                    "name": "location",
+                    "plural": false,
+                    "selections": [
+                      (v3/*: any*/),
+                      (v2/*: any*/)
+                    ],
+                    "storageKey": null
+                  }
+                ],
+                "type": "Person",
+                "abstractKey": null
+              },
+              {
+                "kind": "InlineFragment",
+                "selections": [
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
+                    "name": "organizationKind",
+                    "storageKey": null
+                  }
+                ],
+                "type": "Organization",
+                "abstractKey": null
               }
             ],
             "type": "Actor",
@@ -145,12 +181,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "3919dc6ef018835daca758087169c3c2",
+    "cacheID": "dbf08e51ec6629cc317491cbe59d9969",
     "id": null,
     "metadata": {},
     "name": "PosterDetailsHovercardContentsQuery",
     "operationKind": "query",
-    "text": "query PosterDetailsHovercardContentsQuery(\n  $posterID: ID!\n) {\n  node(id: $posterID) {\n    __typename\n    ... on Actor {\n      __isActor: __typename\n      ...PosterDetailsHovercardContentsBodyFragment\n    }\n    id\n  }\n}\n\nfragment ImageFragment on Image {\n  url\n}\n\nfragment PosterDetailsHovercardContentsBodyFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  joined\n  profilePicture {\n    ...ImageFragment\n  }\n}\n"
+    "text": "query PosterDetailsHovercardContentsQuery(\n  $posterID: ID!\n) {\n  node(id: $posterID) {\n    __typename\n    ... on Actor {\n      __isActor: __typename\n      ...PosterDetailsHovercardContentsBodyFragment\n    }\n    id\n  }\n}\n\nfragment ImageFragment on Image {\n  url\n}\n\nfragment PosterDetailsHovercardContentsBodyFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  joined\n  profilePicture {\n    ...ImageFragment\n  }\n  ... on Person {\n    location {\n      name\n      id\n    }\n  }\n  ... on Organization {\n    organizationKind\n  }\n}\n"
   }
 };
 })();
