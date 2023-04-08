@@ -5,6 +5,7 @@ import type { StoryCommentsSectionFragment$key } from "./__generated__/StoryComm
 import Comment from "./Comment";
 import LoadMoreCommentsButton from "./LoadMoreCommentsButton";
 import LoadingSpinner from "./LoadingSpinner";
+import StoryCommentsComposer from "./StoryCommentsComposer";
 
 const { useTransition } = React;
 
@@ -21,24 +22,26 @@ const StoryCommentsSectionFragment = graphql`
     )
   {
     comments(after: $cursor, first: $count) 
-    @connection(key: "StoryCommentsSectionFragment_comments")
-    {
-      pageInfo {
-        startCursor
-      }
-      edges {
-        node {
-          id
-          ...CommentFragment
+      @connection(key: "StoryCommentsSectionFragment_comments")
+      {
+        pageInfo {
+          startCursor
+        }
+        edges {
+          node {
+            id
+            ...CommentFragment
+          }
         }
       }
-    }
+      ...StoryCommentsComposerFragment
   }
 `;
 
 export default function StoryCommentsSection({ story }: Props) {
   const [isPending, startTransition] = useTransition()
   const { data, loadNext } = usePaginationFragment(StoryCommentsSectionFragment, story);
+  console.log('StoryCommentsSection', data)
   const onLoadMoreCommentBtnClick = () => {
     startTransition(() => {
       loadNext(3)
@@ -46,6 +49,7 @@ export default function StoryCommentsSection({ story }: Props) {
   }
   return (
     <div>
+      <StoryCommentsComposer story={data} />
       {data.comments.edges.map((edge) => (
         <Comment key={edge.node.id} comment={edge.node} />
       ))}
