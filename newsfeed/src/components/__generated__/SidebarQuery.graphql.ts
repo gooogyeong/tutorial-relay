@@ -1,5 +1,6 @@
 /**
- * @generated SignedSource<<044d1c1b28b7ea53bd54e90db69e980b>>
+ * @generated SignedSource<<4dd3b8a8a48a35cb50224d92142e0452>>
+ * @relayHash cb85ad44e8ce8dafea3a740995616911
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -7,6 +8,8 @@
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
+
+// @relayRequestID cb85ad44e8ce8dafea3a740995616911
 
 import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
@@ -147,12 +150,11 @@ return {
     ]
   },
   "params": {
-    "cacheID": "cb85ad44e8ce8dafea3a740995616911",
-    "id": null,
+    "id": "cb85ad44e8ce8dafea3a740995616911",
     "metadata": {},
     "name": "SidebarQuery",
     "operationKind": "query",
-    "text": "query SidebarQuery {\n  viewer {\n    ...ViewerProfileFragment\n    ...ContactsListFragment\n  }\n}\n\nfragment ContactRowFragment on Actor {\n  __isActor: __typename\n  name\n  profilePicture {\n    ...ImageFragment\n  }\n}\n\nfragment ContactsListFragment on Viewer {\n  contacts {\n    __typename\n    id\n    ...ContactRowFragment\n  }\n}\n\nfragment ImageFragment on Image {\n  url\n}\n\nfragment ViewerProfileFragment on Viewer {\n  actor {\n    __typename\n    name\n    profilePicture {\n      url\n    }\n    id\n  }\n}\n"
+    "text": null
   }
 };
 })();

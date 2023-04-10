@@ -1,5 +1,6 @@
 /**
- * @generated SignedSource<<4ef987c94bed489df940f644aa92bcd3>>
+ * @generated SignedSource<<112e604ed13478638d2ed287cbb44766>>
+ * @relayHash 2b833aaa9520df0df86377f68ce0d27b
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -7,6 +8,8 @@
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
+
+// @relayRequestID 2b833aaa9520df0df86377f68ce0d27b
 
 import { ConcreteRequest, Mutation } from 'relay-runtime';
 export type StoryCommentsComposerPostCommentMutation$variables = {
@@ -161,12 +164,11 @@ return {
     ]
   },
   "params": {
-    "cacheID": "2b833aaa9520df0df86377f68ce0d27b",
-    "id": null,
+    "id": "2b833aaa9520df0df86377f68ce0d27b",
     "metadata": {},
     "name": "StoryCommentsComposerPostCommentMutation",
     "operationKind": "mutation",
-    "text": "mutation StoryCommentsComposerPostCommentMutation(\n  $id: ID!\n  $text: String!\n) {\n  postStoryComment(id: $id, text: $text) {\n    commentEdge {\n      node {\n        id\n        text\n      }\n    }\n  }\n}\n"
+    "text": null
   }
 };
 })();

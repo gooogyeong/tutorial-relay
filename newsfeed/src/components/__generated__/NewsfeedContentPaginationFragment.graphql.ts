@@ -1,5 +1,6 @@
 /**
- * @generated SignedSource<<ff24ba6a8404751155fc7faddeb63730>>
+ * @generated SignedSource<<6f8774cbbf530da465f97f51d354e9bf>>
+ * @relayHash 9de3a67242db4ff6787c3ad57e8afc3f
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -7,6 +8,8 @@
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
+
+// @relayRequestID 9de3a67242db4ff6787c3ad57e8afc3f
 
 import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
@@ -383,12 +386,11 @@ return {
     ]
   },
   "params": {
-    "cacheID": "9de3a67242db4ff6787c3ad57e8afc3f",
-    "id": null,
+    "id": "9de3a67242db4ff6787c3ad57e8afc3f",
     "metadata": {},
     "name": "NewsfeedContentPaginationFragment",
     "operationKind": "query",
-    "text": "query NewsfeedContentPaginationFragment(\n  $count: Int = 3\n  $cursor: String = null\n) {\n  ...NewsfeedContentFragment_1G22uz\n}\n\nfragment CommentFragment on Comment {\n  text\n}\n\nfragment ImageFragment_1YYarZ on Image {\n  url(height: 400, width: 400)\n}\n\nfragment ImageFragment_3XLoCc on Image {\n  url(height: 60, width: 60)\n}\n\nfragment NewsfeedContentFragment_1G22uz on Query {\n  viewer {\n    newsfeedStories(first: $count, after: $cursor) {\n      edges {\n        node {\n          id\n          ...StoryFragment\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n  }\n}\n\nfragment PosterBylineFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  profilePicture {\n    ...ImageFragment_3XLoCc\n  }\n}\n\nfragment StoryCommentsComposerFragment on Story {\n  id\n}\n\nfragment StoryCommentsSectionFragment on Story {\n  comments(first: 3) {\n    pageInfo {\n      startCursor\n      endCursor\n      hasNextPage\n    }\n    edges {\n      node {\n        id\n        ...CommentFragment\n        __typename\n      }\n      cursor\n    }\n  }\n  ...StoryCommentsComposerFragment\n  id\n}\n\nfragment StoryFragment on Story {\n  title\n  summary\n  createdAt\n  poster {\n    __typename\n    ...PosterBylineFragment\n    id\n  }\n  thumbnail {\n    ...ImageFragment_1YYarZ\n  }\n  ...StoryCommentsSectionFragment\n  ...StoryLikeButtonFragment\n}\n\nfragment StoryLikeButtonFragment on Story {\n  id\n  likeCount\n  doesViewerLike\n}\n"
+    "text": null
   }
 };
 })();

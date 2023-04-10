@@ -1,5 +1,6 @@
 /**
- * @generated SignedSource<<348b747083b67464a19b13055ff58744>>
+ * @generated SignedSource<<47846c4b68b3028715fc93b9fa4ac6ee>>
+ * @relayHash dbf08e51ec6629cc317491cbe59d9969
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -7,6 +8,8 @@
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
+
+// @relayRequestID dbf08e51ec6629cc317491cbe59d9969
 
 import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
@@ -181,12 +184,11 @@ return {
     ]
   },
   "params": {
-    "cacheID": "dbf08e51ec6629cc317491cbe59d9969",
-    "id": null,
+    "id": "dbf08e51ec6629cc317491cbe59d9969",
     "metadata": {},
     "name": "PosterDetailsHovercardContentsQuery",
     "operationKind": "query",
-    "text": "query PosterDetailsHovercardContentsQuery(\n  $posterID: ID!\n) {\n  node(id: $posterID) {\n    __typename\n    ... on Actor {\n      __isActor: __typename\n      ...PosterDetailsHovercardContentsBodyFragment\n    }\n    id\n  }\n}\n\nfragment ImageFragment on Image {\n  url\n}\n\nfragment PosterDetailsHovercardContentsBodyFragment on Actor {\n  __isActor: __typename\n  id\n  name\n  joined\n  profilePicture {\n    ...ImageFragment\n  }\n  ... on Person {\n    location {\n      name\n      id\n    }\n  }\n  ... on Organization {\n    organizationKind\n  }\n}\n"
+    "text": null
   }
 };
 })();

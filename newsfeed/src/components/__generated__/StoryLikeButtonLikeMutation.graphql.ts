@@ -1,5 +1,6 @@
 /**
- * @generated SignedSource<<baa1652037c7dbd3f7c354ca6f4fec67>>
+ * @generated SignedSource<<59aba65a378be0a9bb1673d32f99becc>>
+ * @relayHash c47d2d866e3e2c78d6494fc26791476a
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -7,6 +8,8 @@
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
+
+// @relayRequestID c47d2d866e3e2c78d6494fc26791476a
 
 import { ConcreteRequest, Mutation } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
@@ -145,12 +148,11 @@ return {
     ]
   },
   "params": {
-    "cacheID": "c47d2d866e3e2c78d6494fc26791476a",
-    "id": null,
+    "id": "c47d2d866e3e2c78d6494fc26791476a",
     "metadata": {},
     "name": "StoryLikeButtonLikeMutation",
     "operationKind": "mutation",
-    "text": "mutation StoryLikeButtonLikeMutation(\n  $id: ID!\n  $doesLike: Boolean!\n) {\n  likeStory(id: $id, doesLike: $doesLike) {\n    story {\n      ...StoryLikeButtonFragment\n      id\n    }\n  }\n}\n\nfragment StoryLikeButtonFragment on Story {\n  id\n  likeCount\n  doesViewerLike\n}\n"
+    "text": null
   }
 };
 })();

@@ -1,5 +1,8 @@
 {
   "src": "./src",
   "schema": "./server/schema.graphql",
-  "language": "typescript"
+  "language": "typescript",
+  "persistConfig": {
+    "file": "./persisted_queries.json"
+  }
 }

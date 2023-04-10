@@ -1,5 +1,6 @@
 /**
- * @generated SignedSource<<9161dc57b3006304e7815957b52513c9>>
+ * @generated SignedSource<<195d218622a6822d67d68a57e500b11e>>
+ * @relayHash b8f526778010682bccb0d953adac8fa0
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -7,6 +8,8 @@
 /* tslint:disable */
 /* eslint-disable */
 // @ts-nocheck
+
+// @relayRequestID b8f526778010682bccb0d953adac8fa0
 
 import { ConcreteRequest, Query } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
@@ -233,12 +236,11 @@ return {
     ]
   },
   "params": {
-    "cacheID": "b8f526778010682bccb0d953adac8fa0",
-    "id": null,
+    "id": "b8f526778010682bccb0d953adac8fa0",
     "metadata": {},
     "name": "StoryCommentsSectionPaginationQuery",
     "operationKind": "query",
-    "text": "query StoryCommentsSectionPaginationQuery(\n  $count: Int = 3\n  $cursor: String\n  $id: ID!\n) {\n  node(id: $id) {\n    __typename\n    ...StoryCommentsSectionFragment_1G22uz\n    id\n  }\n}\n\nfragment CommentFragment on Comment {\n  text\n}\n\nfragment StoryCommentsComposerFragment on Story {\n  id\n}\n\nfragment StoryCommentsSectionFragment_1G22uz on Story {\n  comments(after: $cursor, first: $count) {\n    pageInfo {\n      startCursor\n      endCursor\n      hasNextPage\n    }\n    edges {\n      node {\n        id\n        ...CommentFragment\n        __typename\n      }\n      cursor\n    }\n  }\n  ...StoryCommentsComposerFragment\n  id\n}\n"
+    "text": null
   }
 };
 })();
