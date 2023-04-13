@@ -1,7 +1,13 @@
 import http from "http";
+import fs from "fs";
+import path from "path";
 import { execute, validate, validateSchema, parse } from "graphql";
 import { schema } from "./schema.mjs";
 import { rootValue } from "./resolvers.mjs";
+
+const QUERY_MAP_FILE = path.resolve('../newsfeed/src/components/__generated__/queries.json')
+
+const queryMap = JSON.parse(fs.readFileSync(QUERY_MAP_FILE, 'utf8'));
 
 // This is graphqlImpl from graphql/graphql.mjs but with
 // execute in place of execute.
@@ -68,7 +74,8 @@ const server = http.createServer(async (req, res) => {
     response = await graphql({
       schema,
       rootValue,
-      source: requestParams.query,
+      // requestParams.query,
+      source: queryMap[requestParams.queryId],
       variableValues: requestParams.variables,
     });
   }

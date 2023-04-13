@@ -3,6 +3,6 @@
   "schema": "./server/schema.graphql",
   "language": "typescript",
   "persistConfig": {
-    "file": "./persisted_queries.json"
+    "file": "./src/components/__generated__/queries.json"
   }
 }

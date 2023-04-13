@@ -8,11 +8,13 @@ import {
 import type { FetchFunction, IEnvironment } from "relay-runtime";
 
 const fetchFn: FetchFunction = (params, variables) => {
+  console.log('params', params)
   const response = fetch("/api", {
     method: "POST",
     headers: [["Content-Type", "application/json"]],
     body: JSON.stringify({
-      query: params.text,
+      // query: params.text,
+      queryId: params.id,
       variables,
     }),
   });
